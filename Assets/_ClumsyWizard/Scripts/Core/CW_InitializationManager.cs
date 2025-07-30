@@ -20,8 +20,8 @@ public class CW_InitializationManager : CW_Singleton<CW_InitializationManager>
 
         };
 
-        currentIndex = 0;
-        initEvents[currentIndex]?.Invoke(OnEventComplete);
+        //currentIndex = 0;
+        //initEvents[currentIndex]?.Invoke(OnEventComplete);
     }
 
     private void OnEventComplete()
