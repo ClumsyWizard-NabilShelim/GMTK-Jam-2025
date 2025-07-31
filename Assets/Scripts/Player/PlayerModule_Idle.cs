@@ -19,7 +19,6 @@ public class PlayerModule_Idle : PlayerStateModule
             else
                 player.SetState(PlayerState.Walk);
         }
-            
     }
     public override void FixedUpdateState()
     {

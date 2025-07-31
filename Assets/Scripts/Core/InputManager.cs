@@ -11,6 +11,7 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
     public Action OnRunEnd;
     public Action OnCrouchToggle;
     public Action OnVault;
+    public Action OnAttack;
 
     private void Update()
     {
@@ -34,6 +35,9 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
 
         if(Input.GetKeyDown(KeyCode.Space))
             OnVault?.Invoke();
+
+        if (Input.GetMouseButtonDown(0))
+            OnAttack?.Invoke();
     }
 
     //Clean up

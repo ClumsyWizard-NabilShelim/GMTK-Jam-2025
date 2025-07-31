@@ -22,6 +22,7 @@ public struct CameraShakeData
 
 public class CW_CameraShakeManager : CW_Singleton<CW_CameraShakeManager>
 {
+    [SerializeField] private Transform holder;
     [SerializeField] private CW_Dictionary<CameraShakeType, CameraShakeData> shakeData; 
     private float currentTime;
     private float magnitude;
@@ -32,7 +33,7 @@ public class CW_CameraShakeManager : CW_Singleton<CW_CameraShakeManager>
 
     private void Start()
     {
-        originalPosition = transform.position;
+        originalPosition = holder.localPosition;
     }
 
     private void Update()
@@ -42,12 +43,12 @@ public class CW_CameraShakeManager : CW_Singleton<CW_CameraShakeManager>
 
         if(currentTime >= 0.0f)
         {
-            transform.position = Random.insideUnitCircle * magnitude;
+            holder.localPosition = Random.insideUnitCircle * magnitude;
             currentTime -= Time.deltaTime;
         }
         else
         {
-            transform.position = originalPosition;
+            holder.localPosition = originalPosition;
             canShake = false;
         }
     }

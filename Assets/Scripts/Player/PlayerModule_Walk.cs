@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerModule_Walk : PlayerStateModule
 {
-    [SerializeField] private float moveSpeed;
     public override PlayerState TargetState => PlayerState.Walk;
+    [SerializeField] private float moveSpeed;
 
     public override void Enter(PlayerState previousState)
     {

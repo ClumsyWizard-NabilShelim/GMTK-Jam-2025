@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private Player player;
+
     [SerializeField] private Vector2 offset;
     [SerializeField] private float smoothing;
     private Vector3 refVelocity;
@@ -10,6 +12,12 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+            player = playerObject.GetComponent<Player>();
+        else
+            print("No Player In Scene");
+
         originalOffset = offset;
     }
 
@@ -23,6 +31,6 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + offset, ref refVelocity, smoothing);
+        transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + (player.State == PlayerState.Climb? Vector2.zero : offset), ref refVelocity, smoothing);
     }
 }

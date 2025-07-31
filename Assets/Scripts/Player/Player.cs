@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public enum PlayerState
 {
@@ -8,14 +9,18 @@ public enum PlayerState
     Idle,
     Walk,
     Run,
-    Vault
+    Vault,
+    Climb,
+    Combat
 }
 
 public class Player : MonoBehaviour
 {
     public PlayerState State { get; private set; }
+    public Vector2 Facing { get; private set; }
     public bool IsRunning { get; private set; }
     public bool IsCrouching { get; private set; }
+    private bool canClimb;
 
     public Rigidbody2D RB { get; private set; }
     public PlayerEdgeDetector EdgeDetector { get; private set; }
@@ -32,10 +37,13 @@ public class Player : MonoBehaviour
         EdgeDetector = GetComponent<PlayerEdgeDetector>();
         Visuals = GetComponent<PlayerVisuals>();
 
+        Facing = Vector2.right;
+
         InputManager.Instance.OnRunStart += OnRunStart;
         InputManager.Instance.OnRunEnd += OnRunEnd;
         InputManager.Instance.OnCrouchToggle += OnCrouchToggle;
         InputManager.Instance.OnVault += OnVault;
+        InputManager.Instance.OnAttack += OnAttack;
 
         modules = new Dictionary<PlayerState, PlayerStateModule>();
         foreach (PlayerStateModule module in GetComponents<PlayerStateModule>())
@@ -50,10 +58,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(EdgeDetector.IsNearLedge())
-        {
-            //Interaction Manager will show vault button prompt
-        }
+        Vaulting();
+        Climbing();
+
+        if (InputManager.Instance.InputAxis.x > 0.0f)
+            Facing = Vector2.right;
+        else if(InputManager.Instance.InputAxis.x < 0.0f)
+            Facing = Vector2.left;
 
         modules[State].UpdateState();
     }
@@ -61,6 +72,28 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         modules[State].FixedUpdateState();
+    }
+
+    //Actions
+
+    private void Vaulting()
+    {
+        if (EdgeDetector.IsNearLedge())
+        {
+            //Interaction Manager will show vault button prompt
+        }
+    }
+
+    private void Climbing()
+    {
+        if (State != PlayerState.Idle)
+            return;
+
+        if (canClimb && InputManager.Instance.InputAxis.y != 0.0f)
+        {
+            SetState(PlayerState.Climb);
+            return;
+        }
     }
 
     //Event
@@ -123,6 +156,14 @@ public class Player : MonoBehaviour
             SetState(PlayerState.Vault);
     }
 
+    private void OnAttack()
+    {
+        if (State == PlayerState.Vault || State == PlayerState.Climb || State == PlayerState.Combat)
+            return;
+
+        SetState(PlayerState.Combat);
+    }
+
     //Helper Function
     private void UpdateCrouchState()
     {
@@ -144,11 +185,20 @@ public class Player : MonoBehaviour
         RB.linearVelocity = Vector2.zero;
     }
 
+    public void SetCanClimb(bool canClimb)
+    {
+        this.canClimb = canClimb;
+
+        if (!canClimb && State == PlayerState.Climb)
+            SetState(PlayerState.Idle);
+    }
+
     //Clean up
     private void OnDestroy()
     {
         InputManager.Instance.OnRunStart -= OnRunStart;
         InputManager.Instance.OnRunEnd -= OnRunEnd;
         InputManager.Instance.OnCrouchToggle -= OnCrouchToggle;
+        InputManager.Instance.OnAttack -= OnAttack;
     }
 }

@@ -222,6 +222,8 @@ GameObject:
   - component: {fileID: 7517433981606571447}
   - component: {fileID: 5280352915370481036}
   - component: {fileID: 4224816512201399878}
+  - component: {fileID: 9152462751860335816}
+  - component: {fileID: 5372790764355646550}
   - component: {fileID: 6625187699251889304}
   m_Layer: 6
   m_Name: Player
@@ -308,7 +310,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 863155158a282fa498e89099a3139705, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -421,6 +423,38 @@ MonoBehaviour:
   vaultTime1: 0.25
   vaultTime2: 0.16
   vaultTime3: 0.16
+--- !u!114 &9152462751860335816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043593285908880918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba16d429ce3dec4d852d8114182507c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 2
+--- !u!114 &5372790764355646550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043593285908880918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d40b52132aa6ca4cb75322bc8b201af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  damageLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  damageRadius: 1.1
+  attackDuration: 0.35
+  damageDelay: 0.175
 --- !u!114 &6625187699251889304
 MonoBehaviour:
   m_ObjectHideFlags: 0

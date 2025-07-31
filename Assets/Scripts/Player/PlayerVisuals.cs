@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 public class PlayerVisuals : MonoBehaviour
 {
@@ -56,12 +57,14 @@ public class PlayerVisuals : MonoBehaviour
         animator.SetLayerWeight(1, 0.0f);
     }
 
+    public void PauseAnimator(bool pause)
+    {
+        animator.speed = pause ? 0.0f : 1.0f;
+    }
+
     //Visuals
     private void UpdateFacing()
     {
-        if (InputManager.Instance.InputAxis.x < 0.0f)
-            spriteRenderer.flipX = true;
-        else if (InputManager.Instance.InputAxis.x > 0.0f)
-            spriteRenderer.flipX = false;
+        spriteRenderer.flipX = player.Facing.x < 0.0f;
     }
 }
