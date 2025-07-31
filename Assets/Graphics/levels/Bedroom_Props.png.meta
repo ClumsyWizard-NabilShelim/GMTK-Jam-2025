@@ -73,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -152,12 +152,12 @@ TextureImporter:
       name: Bedroom_Props_0
       rect:
         serializedVersion: 2
-        x: 142
-        y: 147
-        width: 27
-        height: 31
+        x: 143
+        y: 148
+        width: 25
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: Bedroom_Props_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 115
-        width: 56
-        height: 17
+        x: 4
+        y: 116
+        width: 54
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: Bedroom_Props_2
       rect:
         serializedVersion: 2
-        x: 76
-        y: 115
-        width: 36
-        height: 22
+        x: 77
+        y: 116
+        width: 34
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Bedroom_Props_3
       rect:
         serializedVersion: 2
-        x: 208
-        y: 115
-        width: 13
-        height: 20
+        x: 209
+        y: 116
+        width: 11
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: Bedroom_Props_4
       rect:
         serializedVersion: 2
-        x: 284
-        y: 115
-        width: 20
-        height: 17
+        x: 285
+        y: 116
+        width: 18
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: Bedroom_Props_5
       rect:
         serializedVersion: 2
-        x: 244
-        y: 105
-        width: 9
-        height: 7
+        x: 245
+        y: 106
+        width: 7
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: Bedroom_Props_6
       rect:
         serializedVersion: 2
-        x: 79
-        y: 63
-        width: 21
-        height: 32
+        x: 80
+        y: 84
+        width: 19
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: Bedroom_Props_7
       rect:
         serializedVersion: 2
-        x: 195
-        y: 54
-        width: 21
-        height: 15
+        x: 196
+        y: 55
+        width: 19
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: Bedroom_Props_8
       rect:
         serializedVersion: 2
-        x: 255
-        y: 37
-        width: 31
-        height: 48
+        x: 256
+        y: 38
+        width: 29
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -350,12 +350,12 @@ TextureImporter:
       name: Bedroom_Props_9
       rect:
         serializedVersion: 2
-        x: 301
-        y: 35
-        width: 10
-        height: 48
+        x: 302
+        y: 36
+        width: 8
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: Bedroom_Props_10
       rect:
         serializedVersion: 2
-        x: 6
-        y: 50
-        width: 9
-        height: 12
+        x: 7
+        y: 51
+        width: 7
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: Bedroom_Props_11
       rect:
         serializedVersion: 2
-        x: 29
-        y: 3
-        width: 61
-        height: 18
+        x: 30
+        y: 4
+        width: 60
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -416,12 +416,12 @@ TextureImporter:
       name: Bedroom_Props_12
       rect:
         serializedVersion: 2
-        x: 152
-        y: 3
-        width: 73
-        height: 24
+        x: 153
+        y: 4
+        width: 71
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -434,11 +434,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_13
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 64
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa32b37467e8174c94d041b8abc9ca1
+      internalID: 1313294819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6c4f34b2516c20645853068685f995fc
     internalID: 0
     vertices: []
     indices: 
@@ -453,6 +475,10 @@ TextureImporter:
       Bedroom_Props_10: 7271994205635648557
       Bedroom_Props_11: -8775021908752799044
       Bedroom_Props_12: 2492100518392917198
+<<<<<<< Updated upstream
+=======
+      Bedroom_Props_13: 1313294819
+>>>>>>> Stashed changes
       Bedroom_Props_2: -2128558459401243414
       Bedroom_Props_3: 1419217060174273887
       Bedroom_Props_4: 6594690248524614107
