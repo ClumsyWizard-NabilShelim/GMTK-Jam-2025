@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,10 +69,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,12 +137,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 0
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_1
       rect:
         serializedVersion: 2
-        x: 65
+        x: 48
         y: 0
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_2
       rect:
         serializedVersion: 2
-        x: 113
+        x: 96
         y: 0
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_3
       rect:
         serializedVersion: 2
-        x: 161
+        x: 144
         y: 0
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_4
       rect:
         serializedVersion: 2
-        x: 209
+        x: 192
         y: 0
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_5
       rect:
         serializedVersion: 2
-        x: 257
+        x: 240
         y: 0
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -269,12 +269,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_6
       rect:
         serializedVersion: 2
-        x: 305
+        x: 288
         y: 0
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: PlayerTemplate_PullPushIdle_7
       rect:
         serializedVersion: 2
-        x: 353
+        x: 336
         y: 0
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -313,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4e8b85fd5ef204dbda0269b3f72309d3
     internalID: 0
     vertices: []
     indices: 

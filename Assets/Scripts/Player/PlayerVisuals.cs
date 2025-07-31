@@ -51,6 +51,11 @@ public class PlayerVisuals : MonoBehaviour
         animator.SetLayerWeight(0, 0.0f);
         animator.SetLayerWeight(1, 1.0f);
     }
+    public void ActivateDragLayer()
+    {
+        animator.SetLayerWeight(0, 0.0f);
+        animator.SetLayerWeight(1, 0.0f);
+    }
     public void ActivateNormalLayer()
     {
         animator.SetLayerWeight(0, 1.0f);

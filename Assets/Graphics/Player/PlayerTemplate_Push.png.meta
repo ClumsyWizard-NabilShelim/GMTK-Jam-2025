@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,10 +75,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -143,12 +143,12 @@ TextureImporter:
       name: PlayerTemplate_Push_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 26
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: PlayerTemplate_Push_1
       rect:
         serializedVersion: 2
-        x: 56
+        x: 48
         y: 0
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: PlayerTemplate_Push_2
       rect:
         serializedVersion: 2
-        x: 104
+        x: 96
         y: 0
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: PlayerTemplate_Push_3
       rect:
         serializedVersion: 2
-        x: 152
+        x: 144
         y: 0
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: PlayerTemplate_Push_4
       rect:
         serializedVersion: 2
-        x: 205
+        x: 192
         y: 0
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: PlayerTemplate_Push_5
       rect:
         serializedVersion: 2
-        x: 253
+        x: 240
         y: 0
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: PlayerTemplate_Push_6
       rect:
         serializedVersion: 2
-        x: 299
+        x: 288
         y: 0
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: PlayerTemplate_Push_7
       rect:
         serializedVersion: 2
-        x: 345
+        x: 336
         y: 0
-        width: 28
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -319,12 +319,12 @@ TextureImporter:
       name: PlayerTemplate_Push_8
       rect:
         serializedVersion: 2
-        x: 393
+        x: 384
         y: 0
-        width: 28
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -341,12 +341,12 @@ TextureImporter:
       name: PlayerTemplate_Push_9
       rect:
         serializedVersion: 2
-        x: 445
+        x: 432
         y: 0
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -363,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: af462354c8e4c43809df1e4afb9b7015
     internalID: 0
     vertices: []
     indices: 
