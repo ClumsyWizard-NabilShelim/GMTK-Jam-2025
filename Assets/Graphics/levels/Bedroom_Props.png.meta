@@ -447,7 +447,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bedroom_Props_0: 2851914411708608368
+      Bedroom_Props_1: 6488128242104358683
+      Bedroom_Props_10: 7271994205635648557
+      Bedroom_Props_11: -8775021908752799044
+      Bedroom_Props_12: 2492100518392917198
+      Bedroom_Props_2: -2128558459401243414
+      Bedroom_Props_3: 1419217060174273887
+      Bedroom_Props_4: 6594690248524614107
+      Bedroom_Props_5: -7486079066289843039
+      Bedroom_Props_6: 7287659538449135620
+      Bedroom_Props_7: -6199479325820842799
+      Bedroom_Props_8: 1409049485780413923
+      Bedroom_Props_9: 7040759309980765942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

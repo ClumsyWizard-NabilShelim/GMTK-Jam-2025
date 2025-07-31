@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1516049741467153588}
   - component: {fileID: 7135272411622646471}
   - component: {fileID: 8908024957885787923}
+  - component: {fileID: 9075583718904337029}
   m_Layer: 10
   m_Name: MoveableObject
   m_TagString: Untagged
@@ -107,6 +108,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!251 &9075583718904337029
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064043377774808024}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 180
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 100
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &7994216377223074291
 GameObject:
   m_ObjectHideFlags: 0
