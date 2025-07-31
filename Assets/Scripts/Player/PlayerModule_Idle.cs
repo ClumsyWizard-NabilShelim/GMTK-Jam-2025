@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class PlayerModule_Idle : PlayerStateModule
 {
