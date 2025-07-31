@@ -1,16 +1,15 @@
 using UnityEngine;
 
+
 public class CameraController : MonoBehaviour
 {
-    private Transform target;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector2 offset;
     [SerializeField] private float smoothing;
     private Vector3 refVelocity;
     private Vector3 originalOffset;
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
         originalOffset = offset;
     }
 
@@ -24,6 +23,6 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, target.position + offset, ref refVelocity, smoothing);
+        transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + offset, ref refVelocity, smoothing);
     }
 }

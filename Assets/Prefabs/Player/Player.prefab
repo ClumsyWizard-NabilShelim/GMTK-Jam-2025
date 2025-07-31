@@ -417,9 +417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ad97cc25d380149a0acae616ee8fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 1
-  vaultTime1: 0.3
-  vaultTime2: 0.7
+  height: 0.9
+  vaultTime1: 0.25
+  vaultTime2: 0.16
+  vaultTime3: 0.16
 --- !u!114 &6625187699251889304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d915467bd0e30cf4abb86dd330e0b824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkRange: 0.4
+  checkRange: 0.26
   checkLayer:
     serializedVersion: 2
     m_Bits: 128

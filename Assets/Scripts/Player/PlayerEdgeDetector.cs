@@ -25,7 +25,7 @@ public class PlayerEdgeDetector : MonoBehaviour
         {
             if (Physics2D.Raycast((Vector2)transform.position + bottomCheckPos, checkDir, checkRange, checkLayer))
             {
-                hit = Physics2D.Raycast((Vector2)transform.position + topCheckPos + checkDir * checkRange, Vector2.down, 100.0f, checkLayer);
+                hit = Physics2D.Raycast((Vector2)transform.position + topCheckPos + checkDir * checkRange * 2.0f, Vector2.down, 100.0f, checkLayer);
                 return true;
             }
         }
@@ -36,7 +36,7 @@ public class PlayerEdgeDetector : MonoBehaviour
     public Vector2 GetLedgeTopTargetPos()
     {
         if (hit.collider == null)
-            return (Vector2)transform.position + topCheckPos + checkDir * checkRange;
+            return (Vector2)transform.position + topCheckPos + checkDir * checkRange * 2.0f;
         else
             return hit.point;
     }

@@ -318,5 +318,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3853e1067a5794a42b569c9607a2cb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 3, y: 2, z: 0}
+  offset: {x: 3, y: 0.5}
   smoothing: 1
