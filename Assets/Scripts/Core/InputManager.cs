@@ -6,6 +6,9 @@ using UnityEngine;
 public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
 {
     public Action OnPause;
+    public Vector2 InputAxis { get; private set; }
+    public Action OnRunStart;
+    public Action OnRunEnd;
 
     private void Update()
     {
@@ -16,6 +19,13 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
             else
                 OnPause?.Invoke();
         }
+
+        InputAxis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+            OnRunStart?.Invoke();
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+            OnRunEnd?.Invoke();
     }
 
     //Clean up

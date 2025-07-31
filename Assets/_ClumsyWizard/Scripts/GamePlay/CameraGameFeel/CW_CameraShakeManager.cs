@@ -37,18 +37,6 @@ public class CW_CameraShakeManager : CW_Singleton<CW_CameraShakeManager>
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
-            Shake(CameraShakeType.Low);
-
-        if (Input.GetKeyDown(KeyCode.S))
-            Shake(CameraShakeType.Medium);
-
-        if (Input.GetKeyDown(KeyCode.D))
-            Shake(CameraShakeType.High);
-
-        if (Input.GetKeyDown(KeyCode.F))
-            Shake(CameraShakeType.Ultra);
-
         if (!canShake)
             return;
 

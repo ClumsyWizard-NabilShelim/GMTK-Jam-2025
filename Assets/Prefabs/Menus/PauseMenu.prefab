@@ -161,8 +161,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -240,7 +240,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 305, y: 205}
+  m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4854847153474346215
 GameObject:
@@ -373,7 +373,7 @@ MonoBehaviour:
     m_Top: 15
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 16
+  m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855703029248062041, guid: e9e592c27d7f2624a80f707d4a4fd0c8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 88.5143
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7855703029248062041, guid: e9e592c27d7f2624a80f707d4a4fd0c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -691,7 +691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855703029248062041, guid: e9e592c27d7f2624a80f707d4a4fd0c8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 88.5143
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7855703029248062041, guid: e9e592c27d7f2624a80f707d4a4fd0c8, type: 3}
       propertyPath: m_LocalPosition.x
