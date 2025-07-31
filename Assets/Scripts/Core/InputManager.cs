@@ -9,6 +9,8 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
     public Vector2 InputAxis { get; private set; }
     public Action OnRunStart;
     public Action OnRunEnd;
+    public Action OnCrouchToggle;
+    public Action OnVault;
 
     private void Update()
     {
@@ -26,6 +28,12 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
             OnRunStart?.Invoke();
         if(Input.GetKeyUp(KeyCode.LeftShift))
             OnRunEnd?.Invoke();
+
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+            OnCrouchToggle?.Invoke();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+            OnVault?.Invoke();
     }
 
     //Clean up
