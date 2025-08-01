@@ -11,6 +11,7 @@ public class PlayerModule_Move : PlayerStateModule
     [SerializeField] private float dragSpeed;
     private float currentSpeed;
 
+
     public override void Initialize(Player player)
     {
         base.Initialize(player);

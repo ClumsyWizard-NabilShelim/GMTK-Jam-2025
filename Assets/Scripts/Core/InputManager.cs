@@ -13,6 +13,8 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
     public Action OnAttack;
     public Action OnJump;
     public Action OnDragDrop;
+    public Action OnInteract;
+    public Action OnContinueDialogue;
 
     private void Update()
     {
@@ -38,7 +40,17 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
             OnJump?.Invoke();
 
         if (Input.GetKeyDown(KeyCode.E))
-            OnDragDrop?.Invoke();
+        {
+            if (DialogueManager.Instance != null && DialogueManager.Instance.IsShowingDialogue)
+            {
+                OnContinueDialogue?.Invoke();
+            }
+            else
+            {
+                OnInteract?.Invoke();
+                OnDragDrop?.Invoke();
+            }
+        }
 
         if (Input.GetMouseButtonDown(0))
             OnAttack?.Invoke();

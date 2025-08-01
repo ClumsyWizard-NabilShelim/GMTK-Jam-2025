@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3853e1067a5794a42b569c9607a2cb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalOffset: {x: 3, y: 0.5}
+  normalOffset: {x: 2, y: 0.5}
   normalSmoothing: 0.4
   climbingOffset: {x: 0, y: 1}
   climbingSmoothing: 0.3

@@ -15,6 +15,7 @@ public enum PlayerState
 
 public class Player : MonoBehaviour
 {
+    private bool isActive;
     public PlayerState State { get; private set; }
     public Vector2 Facing { get; private set; }
 
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        isActive = true;
         RB = GetComponent<Rigidbody2D>();
         defaultGravity = RB.gravityScale;
 
@@ -66,6 +68,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive)
+            return;
+
         LedgeDetection();
 
         if (!StateModifier.IsInLockedState())
@@ -81,6 +86,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isActive)
+            return;
+
         modules[State].FixedUpdateState();
     }
 
@@ -114,6 +122,9 @@ public class Player : MonoBehaviour
     //Input Events
     private void OnRunStart()
     {
+        if (!isActive)
+            return;
+
         if (State == PlayerState.Vault || StateModifier.IsInLockedState())
             return;
 
@@ -122,6 +133,9 @@ public class Player : MonoBehaviour
     }
     private void OnRunEnd()
     {
+        if (!isActive)
+            return;
+
         if (State == PlayerState.Vault || StateModifier.State != PlayerModifiedState.Running || StateModifier.IsInLockedState())
             return;
 
@@ -129,6 +143,9 @@ public class Player : MonoBehaviour
     }
     private void OnCrouchToggle()
     {
+        if (!isActive)
+            return;
+
         if (State == PlayerState.Vault || StateModifier.IsInLockedState())
             return;
 
@@ -140,6 +157,9 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
+        if (!isActive)
+            return;
+
         if (State == PlayerState.Vault || State == PlayerState.Combat || StateModifier.IsInLockedState())
             return;
 
@@ -148,7 +168,10 @@ public class Player : MonoBehaviour
 
     private void OnJump()
     {
-        if(State == PlayerState.Vault || State == PlayerState.Jump || StateModifier.State == PlayerModifiedState.Dragging)
+        if (!isActive)
+            return;
+
+        if (State == PlayerState.Vault || State == PlayerState.Jump || StateModifier.State == PlayerModifiedState.Dragging)
             return;
 
         StateModifier.SetState(PlayerModifiedState.None);
@@ -167,6 +190,17 @@ public class Player : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapBox(transform.position, checkArea, 0.0f, groundLayer) != null;
+    }
+
+    public void Toggle(bool active)
+    {
+        isActive = active;
+
+        if (!isActive)
+        {
+            StateModifier.SetState(PlayerModifiedState.None);
+            SetState(PlayerState.Idle);
+        }
     }
 
     //Clean up
