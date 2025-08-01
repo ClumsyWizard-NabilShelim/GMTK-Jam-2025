@@ -7,28 +7,29 @@ public enum PlayerState
 {
     Init = -1,
     Idle,
-    Walk,
-    Run,
+    Move,
     Vault,
-    Climb,
-    Combat
+    Combat,
+    Jump
 }
 
 public class Player : MonoBehaviour
 {
     public PlayerState State { get; private set; }
     public Vector2 Facing { get; private set; }
-    public bool IsRunning { get; private set; }
-    public bool IsCrouching { get; private set; }
-    private bool canClimb;
 
     public Rigidbody2D RB { get; private set; }
     public PlayerEdgeDetector EdgeDetector { get; private set; }
     public PlayerVisuals Visuals { get; private set; }
+    public PlayerStateModifier StateModifier { get; private set; }
     private Dictionary<PlayerState, PlayerStateModule> modules;
 
     private float defaultGravity;
-    
+
+    [Header("Ground Detection")]
+    [SerializeField] private Vector2 checkArea;
+    [SerializeField] private LayerMask groundLayer;
+
     private void Start()
     {
         RB = GetComponent<Rigidbody2D>();
@@ -37,13 +38,16 @@ public class Player : MonoBehaviour
         EdgeDetector = GetComponent<PlayerEdgeDetector>();
         Visuals = GetComponent<PlayerVisuals>();
 
+        StateModifier = GetComponent<PlayerStateModifier>();
+        StateModifier.Initialize(this);
+
         Facing = Vector2.right;
 
         InputManager.Instance.OnRunStart += OnRunStart;
         InputManager.Instance.OnRunEnd += OnRunEnd;
         InputManager.Instance.OnCrouchToggle += OnCrouchToggle;
-        InputManager.Instance.OnVault += OnVault;
         InputManager.Instance.OnAttack += OnAttack;
+        InputManager.Instance.OnJump += OnJump;
 
         modules = new Dictionary<PlayerState, PlayerStateModule>();
         foreach (PlayerStateModule module in GetComponents<PlayerStateModule>())
@@ -58,8 +62,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Vaulting();
-        Climbing();
+        LedgeDetection();
 
         if (InputManager.Instance.InputAxis.x > 0.0f)
             Facing = Vector2.right;
@@ -75,25 +78,13 @@ public class Player : MonoBehaviour
     }
 
     //Actions
-
-    private void Vaulting()
+    private void LedgeDetection()
     {
+        if (State == PlayerState.Vault || RB.linearVelocityY >= 0.0f || IsGrounded())
+            return;
+
         if (EdgeDetector.IsNearLedge())
-        {
-            //Interaction Manager will show vault button prompt
-        }
-    }
-
-    private void Climbing()
-    {
-        if (State != PlayerState.Idle)
-            return;
-
-        if (canClimb && InputManager.Instance.InputAxis.y != 0.0f)
-        {
-            SetState(PlayerState.Climb);
-            return;
-        }
+            SetState(PlayerState.Vault);
     }
 
     //Event
@@ -116,81 +107,59 @@ public class Player : MonoBehaviour
     //Input Events
     private void OnRunStart()
     {
-        if (State == PlayerState.Vault)
+        if (State == PlayerState.Vault || StateModifier.IsInLockedState())
             return;
 
-        IsRunning = true;
-        IsCrouching = false;
-        UpdateCrouchState();
-
         if (InputManager.Instance.InputAxis.x != 0.0f)
-            SetState(PlayerState.Run);
+            StateModifier.SetState(PlayerModifiedState.Running);
     }
     private void OnRunEnd()
     {
-        if (State == PlayerState.Vault)
+        if (State == PlayerState.Vault || StateModifier.State != PlayerModifiedState.Running || StateModifier.IsInLockedState())
             return;
 
-        IsRunning = false;
-
-        if (InputManager.Instance.InputAxis.x != 0.0f)
-            SetState(PlayerState.Walk);
+        StateModifier.SetState(PlayerModifiedState.None);
     }
     private void OnCrouchToggle()
     {
-        if (State == PlayerState.Vault)
+        if (State == PlayerState.Vault || StateModifier.IsInLockedState())
             return;
 
-        IsCrouching = !IsCrouching;
-        IsRunning = false;
-
-        UpdateCrouchState();
-    }
-
-    private void OnVault()
-    {
-        if (State == PlayerState.Vault)
-            return;
-
-        if (EdgeDetector.IsNearLedge())
-            SetState(PlayerState.Vault);
+        if (StateModifier.State == PlayerModifiedState.Crouching)
+            StateModifier.SetState(PlayerModifiedState.None);
+        else
+            StateModifier.SetState(PlayerModifiedState.Crouching);
     }
 
     private void OnAttack()
     {
-        if (State == PlayerState.Vault || State == PlayerState.Climb || State == PlayerState.Combat)
+        if (State == PlayerState.Vault || State == PlayerState.Combat || StateModifier.IsInLockedState())
             return;
 
         SetState(PlayerState.Combat);
     }
 
-    //Helper Function
-    private void UpdateCrouchState()
+    private void OnJump()
     {
-        if (IsCrouching)
-            Visuals.ActivateCrouchLayer();
-        else
-            Visuals.ActivateNormalLayer();
+        if(State == PlayerState.Vault || State == PlayerState.Jump || StateModifier.State == PlayerModifiedState.Dragging)
+            return;
 
-        SetState(PlayerState.Idle);
+        StateModifier.SetState(PlayerModifiedState.None);
+        SetState(PlayerState.Jump);
     }
 
+    //Helper Function
     public void ToggleGravity(bool toggle)
     {
         if (toggle)
             RB.gravityScale = defaultGravity;
         else
             RB.gravityScale = 0.0f;
-
-        RB.linearVelocity = Vector2.zero;
     }
 
-    public void SetCanClimb(bool canClimb)
+    public bool IsGrounded()
     {
-        this.canClimb = canClimb;
-
-        if (!canClimb && State == PlayerState.Climb)
-            SetState(PlayerState.Idle);
+        return Physics2D.OverlapBox(transform.position, checkArea, 0.0f, groundLayer) != null;
     }
 
     //Clean up
@@ -200,5 +169,12 @@ public class Player : MonoBehaviour
         InputManager.Instance.OnRunEnd -= OnRunEnd;
         InputManager.Instance.OnCrouchToggle -= OnCrouchToggle;
         InputManager.Instance.OnAttack -= OnAttack;
+        InputManager.Instance.OnJump -= OnJump;
+    }
+
+    //Debug
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(transform.position, checkArea);
     }
 }

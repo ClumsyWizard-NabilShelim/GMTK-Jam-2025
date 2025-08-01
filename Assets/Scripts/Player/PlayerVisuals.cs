@@ -22,19 +22,17 @@ public class PlayerVisuals : MonoBehaviour
     }
 
     //Animation
-    public void PlayMove(bool play)
+    public void PlayWalk()
     {
-        if (play)
-            animator.SetFloat("MoveAmount", 0.5f);
-        else
-            animator.SetFloat("MoveAmount", -1.0f);
+        animator.SetFloat("MoveAmount", 0.5f);
     }
-    public void PlayRun(bool play)
+    public void PlayRun()
     {
-        if (play)
-            animator.SetFloat("MoveAmount", 1.0f);
-        else
-            animator.SetFloat("MoveAmount", -1.0f);
+        animator.SetFloat("MoveAmount", 1.0f);
+    }
+    public void StopMove()
+    {
+        animator.SetFloat("MoveAmount", -1.0f);
     }
 
     public void Play(string name, bool play)
@@ -50,16 +48,19 @@ public class PlayerVisuals : MonoBehaviour
     {
         animator.SetLayerWeight(0, 0.0f);
         animator.SetLayerWeight(1, 1.0f);
+        animator.SetLayerWeight(2, 0.0f);
     }
     public void ActivateDragLayer()
     {
         animator.SetLayerWeight(0, 0.0f);
         animator.SetLayerWeight(1, 0.0f);
+        animator.SetLayerWeight(2, 1.0f);
     }
     public void ActivateNormalLayer()
     {
         animator.SetLayerWeight(0, 1.0f);
         animator.SetLayerWeight(1, 0.0f);
+        animator.SetLayerWeight(2, 0.0f);
     }
 
     public void PauseAnimator(bool pause)

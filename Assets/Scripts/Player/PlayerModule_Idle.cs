@@ -11,12 +11,9 @@ public class PlayerModule_Idle : PlayerStateModule
 
     public override void UpdateState()
     {
-        if (InputManager.Instance.InputAxis.x != 0.0f)
+        if (InputManager.Instance.InputAxis.x != 0.0f || (player.StateModifier.State == PlayerModifiedState.Climbing && InputManager.Instance.InputAxis.y != 0.0f))
         {
-            if(player.IsRunning)
-                player.SetState(PlayerState.Run);
-            else
-                player.SetState(PlayerState.Walk);
+            player.SetState(PlayerState.Move);
         }
     }
     public override void FixedUpdateState()

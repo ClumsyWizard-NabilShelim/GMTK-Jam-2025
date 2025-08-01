@@ -29,6 +29,7 @@ public class PlayerModule_Vault : PlayerStateModule
 
         startingPosition = player.RB.position;
         player.ToggleGravity(false);
+        player.RB.linearVelocity = Vector2.zero;
         currentTime = 0.0f;
 
         player.Visuals.Trigger("Vault");
