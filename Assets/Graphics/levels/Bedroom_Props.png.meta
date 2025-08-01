@@ -439,9 +439,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 87
-        y: 64
-        width: 3
-        height: 4
+        y: 63
+        width: 4
+        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,6 +452,160 @@ TextureImporter:
       bones: []
       spriteID: ffa32b37467e8174c94d041b8abc9ca1
       internalID: 1313294819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_14
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 164
+        width: 7
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cfbdac69f2d4042a6d0940f67d12a6
+      internalID: -1121114855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_15
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 149
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20c0bde47640fff439ffc6c3517791a6
+      internalID: 2112893655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 83
+        width: 25
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b117da251341f8043a0f9d254e3f59ad
+      internalID: 1499075669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_17
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 63
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0a2756eec563048805d6b04ebda913
+      internalID: -1643278229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_18
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 9
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1268b75bb59cd584c91fd02c96d41f8b
+      internalID: 589510547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_19
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 10
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20d0f4d7a332de408da158b5759d6f4
+      internalID: 738360849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_20
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 10
+        width: 22
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e124af32d2ea943b6764af3836288f
+      internalID: 1415531011
       vertices: []
       indices: 
       edges: []
@@ -475,18 +629,13 @@ TextureImporter:
       Bedroom_Props_10: 7271994205635648557
       Bedroom_Props_11: -8775021908752799044
       Bedroom_Props_12: 2492100518392917198
-<<<<<<< Updated upstream
-=======
-      Bedroom_Props_13: 1313294819
->>>>>>> Stashed changes
-      Bedroom_Props_2: -2128558459401243414
-      Bedroom_Props_3: 1419217060174273887
-      Bedroom_Props_4: 6594690248524614107
-      Bedroom_Props_5: -7486079066289843039
-      Bedroom_Props_6: 7287659538449135620
-      Bedroom_Props_7: -6199479325820842799
-      Bedroom_Props_8: 1409049485780413923
-      Bedroom_Props_9: 7040759309980765942
+      Bedroom_Props_14: -1121114855
+      Bedroom_Props_15: 2112893655
+      Bedroom_Props_16: 1499075669
+      Bedroom_Props_17: -1643278229
+      Bedroom_Props_18: 589510547
+      Bedroom_Props_19: 738360849
+      Bedroom_Props_20: 1415531011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
