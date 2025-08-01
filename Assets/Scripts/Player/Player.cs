@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D RB { get; private set; }
     public PlayerEdgeDetector EdgeDetector { get; private set; }
+    public PlayerDragSystem DragSystem { get; private set; }
     public PlayerVisuals Visuals { get; private set; }
     public PlayerStateModifier StateModifier { get; private set; }
     private Dictionary<PlayerState, PlayerStateModule> modules;
@@ -37,6 +38,9 @@ public class Player : MonoBehaviour
 
         EdgeDetector = GetComponent<PlayerEdgeDetector>();
         Visuals = GetComponent<PlayerVisuals>();
+
+        DragSystem = GetComponent<PlayerDragSystem>();
+        DragSystem.Initialize(this);
 
         StateModifier = GetComponent<PlayerStateModifier>();
         StateModifier.Initialize(this);
@@ -64,10 +68,13 @@ public class Player : MonoBehaviour
     {
         LedgeDetection();
 
-        if (InputManager.Instance.InputAxis.x > 0.0f)
-            Facing = Vector2.right;
-        else if(InputManager.Instance.InputAxis.x < 0.0f)
-            Facing = Vector2.left;
+        if (!StateModifier.IsInLockedState())
+        {
+            if (InputManager.Instance.InputAxis.x > 0.0f)
+                Facing = Vector2.right;
+            else if (InputManager.Instance.InputAxis.x < 0.0f)
+                Facing = Vector2.left;
+        }
 
         modules[State].UpdateState();
     }
@@ -80,7 +87,7 @@ public class Player : MonoBehaviour
     //Actions
     private void LedgeDetection()
     {
-        if (State == PlayerState.Vault || RB.linearVelocityY >= 0.0f || IsGrounded())
+        if (State == PlayerState.Vault || IsGrounded())
             return;
 
         if (EdgeDetector.IsNearLedge())

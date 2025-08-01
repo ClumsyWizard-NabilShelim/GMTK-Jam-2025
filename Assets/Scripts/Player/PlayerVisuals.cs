@@ -15,7 +15,7 @@ public class PlayerVisuals : MonoBehaviour
 
     private void Update()
     {
-        if (player.State == PlayerState.Vault)
+        if (player.State == PlayerState.Vault || player.StateModifier.IsInLockedState())
             return;
 
         UpdateFacing();
@@ -33,6 +33,11 @@ public class PlayerVisuals : MonoBehaviour
     public void StopMove()
     {
         animator.SetFloat("MoveAmount", -1.0f);
+    }
+    public void PlayPushPull(float dir)
+    {
+        animator.SetFloat("MoveAmount", 1.0f);
+        animator.SetFloat("PushPullDir", dir);
     }
 
     public void Play(string name, bool play)

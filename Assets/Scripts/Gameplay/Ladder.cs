@@ -3,6 +3,7 @@ using UnityEngine;
 public class Ladder : MonoBehaviour
 {
     private Player player;
+    [SerializeField] private InteractableObjectUI interactUI;
 
     private void Update()
     {
@@ -21,6 +22,10 @@ public class Ladder : MonoBehaviour
             return;
 
         player = collision.GetComponent<Player>();
+
+        interactUI.transform.position = new Vector3(transform.position.x, player.transform.position.y + 1.5f, 0.0f);
+        interactUI.ToggleMarker(true);
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -31,5 +36,6 @@ public class Ladder : MonoBehaviour
             player.StateModifier.SetState(PlayerModifiedState.None);
 
         player = null;
+        interactUI.ToggleMarker(false);
     }
 }

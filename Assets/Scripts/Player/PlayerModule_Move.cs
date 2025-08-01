@@ -8,6 +8,7 @@ public class PlayerModule_Move : PlayerStateModule
     [SerializeField] private float runSpeed;
     [SerializeField] private float crouchSpeed;
     [SerializeField] private float climbSpeed;
+    [SerializeField] private float dragSpeed;
     private float currentSpeed;
 
     public override void Initialize(Player player)
@@ -36,7 +37,13 @@ public class PlayerModule_Move : PlayerStateModule
             else
                 player.Visuals.PauseAnimator(false);
 
-            player.RB.linearVelocity = InputManager.Instance.InputAxis * climbSpeed;
+            player.RB.linearVelocity = InputManager.Instance.InputAxis * currentSpeed;
+        }
+        if (player.StateModifier.State == PlayerModifiedState.Dragging)
+        {
+            player.Visuals.PlayPushPull(InputManager.Instance.InputAxis.x * player.Facing.x);
+
+            player.RB.linearVelocityX = InputManager.Instance.InputAxis.x * currentSpeed;
         }
         else
         {
@@ -78,6 +85,8 @@ public class PlayerModule_Move : PlayerStateModule
                 player.Visuals.PlayWalk();
                 break;
             case PlayerModifiedState.Dragging:
+                currentSpeed = dragSpeed;
+                player.Visuals.StopMove();
                 break;
             case PlayerModifiedState.Climbing:
                 player.ToggleGravity(false);

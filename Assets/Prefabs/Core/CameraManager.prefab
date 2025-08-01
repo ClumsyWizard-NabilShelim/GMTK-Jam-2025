@@ -250,8 +250,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3471369925487532415}
-  - component: {fileID: 8436463587100415075}
-  - component: {fileID: 6416222562817440384}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -276,51 +274,6 @@ Transform:
   - {fileID: 6901785111863495068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8436463587100415075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5837073229636871379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a7165c72cb2a14e9e1ba1009d264d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holder: {fileID: 1933772392904689543}
-  shakeData:
-    entries:
-    - key: 0
-      value:
-        Duration: 0.2
-        Magnitude: 0.05
-    - key: 1
-      value:
-        Duration: 0.3
-        Magnitude: 0.1
-    - key: 2
-      value:
-        Duration: 0.5
-        Magnitude: 0.3
-    - key: 3
-      value:
-        Duration: 0.6
-        Magnitude: 0.5
---- !u!114 &6416222562817440384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5837073229636871379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3853e1067a5794a42b569c9607a2cb54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 3, y: 0.5}
-  smoothing: 0.5
 --- !u!1 &8411575072510653797
 GameObject:
   m_ObjectHideFlags: 0

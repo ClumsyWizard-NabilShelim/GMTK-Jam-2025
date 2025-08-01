@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 5372790764355646550}
   - component: {fileID: 8406471361018432186}
   - component: {fileID: 6625187699251889304}
+  - component: {fileID: 5471739922222618408}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -318,7 +319,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -414,6 +415,7 @@ MonoBehaviour:
   runSpeed: 6
   crouchSpeed: 2
   climbSpeed: 1.5
+  dragSpeed: 1
 --- !u!114 &4224816512201399878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,10 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ad97cc25d380149a0acae616ee8fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 0.9
-  vaultTime1: 0.25
-  vaultTime2: 0.16
-  vaultTime3: 0.16
+  vaultTime: 0.6
 --- !u!114 &5372790764355646550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +482,18 @@ MonoBehaviour:
     m_Bits: 128
   topCheckPos: {x: 0, y: 1.1}
   bottomCheckPos: {x: 0, y: 0.9}
+--- !u!114 &5471739922222618408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043593285908880918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e989776ba34d07142a18b4ce71830962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8832842085606283801
 GameObject:
   m_ObjectHideFlags: 0

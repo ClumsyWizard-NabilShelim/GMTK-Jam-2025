@@ -12,6 +12,7 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
     public Action OnCrouchToggle;
     public Action OnAttack;
     public Action OnJump;
+    public Action OnDragDrop;
 
     private void Update()
     {
@@ -35,6 +36,9 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
 
         if (Input.GetKeyDown(KeyCode.Space))
             OnJump?.Invoke();
+
+        if (Input.GetKeyDown(KeyCode.E))
+            OnDragDrop?.Invoke();
 
         if (Input.GetMouseButtonDown(0))
             OnAttack?.Invoke();
