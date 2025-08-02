@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryItem : MonoBehaviour
 {
     [SerializeField] private List<DialogueData> dialogues;
-    [SerializeField] private PlayerItem itemType;
+    [SerializeField] private string itemType;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

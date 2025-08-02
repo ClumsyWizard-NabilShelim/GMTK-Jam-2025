@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6772781929568446973, guid: 17ab6d8e0b8754efda8139e8e9be047a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -145,6 +149,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 119989368059661854, guid: 17ab6d8e0b8754efda8139e8e9be047a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8816229133019410399}
+    - targetCorrespondingSourceObject: {fileID: 119989368059661854, guid: 17ab6d8e0b8754efda8139e8e9be047a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 29866752762095153}
   m_SourcePrefab: {fileID: 100100000, guid: 17ab6d8e0b8754efda8139e8e9be047a, type: 3}
 --- !u!212 &1821387112604138216 stripped
 SpriteRenderer:
@@ -168,9 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a33666944bf94699805a8466bd47643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 7621138512901416753}
   blockingCollider: {fileID: 7128715282604985619}
   isOpen: 0
+  requiredKey: 
+  lockedDoorDialogues:
+  - Name: 0
+    Dialogue: This door is locked shut.
+  ui: {fileID: 7621138512901416753}
   spriteRenderer: {fileID: 1821387112604138216}
   openSprite: {fileID: 1409049485780413923, guid: 3714d45c0b9975543b88b2521e6f3a6b, type: 3}
   closeSprite: {fileID: 7040759309980765942, guid: 3714d45c0b9975543b88b2521e6f3a6b, type: 3}
@@ -266,6 +277,59 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.86629313, y: 1.451891}
   m_EdgeRadius: 0
+--- !u!114 &29866752762095153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4027608139960577020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 012e7acb00000000593ca4e9
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.099378675, y: 1.5180928, z: 0}
+  - {x: 0.13, y: 1.52, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  m_ShapePathHash: -1948627099
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 7128715282604985619}
+  m_ShadowShape2DProvider:
+    rid: 6830285040833790102
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.013450623, y: 0.71549225, z: 0}
+      m_Extent: {x: 0.121421814, y: 0.72055817, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 2
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 7128715282604985619}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6830285040833790102
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!4 &7028172740209373013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6325213508800875191, guid: 17ab6d8e0b8754efda8139e8e9be047a, type: 3}

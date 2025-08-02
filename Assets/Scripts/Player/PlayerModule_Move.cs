@@ -55,7 +55,6 @@ public class PlayerModule_Move : PlayerStateModule
         if (player.StateModifier.State == PlayerModifiedState.Dragging)
         {
             player.Visuals.PlayPushPull(InputManager.Instance.InputAxis.x * player.Facing.x);
-            print("Dragging");
             player.RB.linearVelocityX = InputManager.Instance.InputAxis.x * currentSpeed;
         }
         else

@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7942107528272709155, guid: c3aebaf6330eee2479c82273003d5642, type: 3}
       propertyPath: itemType
-      value: 2
+      value: Bat
       objectReference: {fileID: 0}
     - target: {fileID: 7942107528272709155, guid: c3aebaf6330eee2479c82273003d5642, type: 3}
       propertyPath: dialogues.Array.size

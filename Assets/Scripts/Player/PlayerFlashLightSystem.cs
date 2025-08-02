@@ -23,7 +23,7 @@ public class PlayerFlashLightSystem : MonoBehaviour
 
     private void OnToggleFlashLight()
     {
-        if(PlayerInventory.Instance.HasItem(PlayerItem.FlashLight) && !PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.FlashLight))
+        if(PlayerInventory.Instance.HasItem("FlashLight") && !PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.FlashLight))
             flashlight.SetActive(!flashlight.activeSelf);
     }
 

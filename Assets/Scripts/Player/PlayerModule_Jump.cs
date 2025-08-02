@@ -17,7 +17,9 @@ public class PlayerModule_Jump : PlayerStateModule
         landing = false;
         player.Visuals.Play("Jump", true);
         player.RB.linearVelocity = Vector2.zero;
-        player.RB.AddForce(new Vector2(InputManager.Instance.InputAxis.x, 1.0f) * jumpForce, ForceMode2D.Impulse);
+
+        if(player.IsGrounded())
+            player.RB.AddForce(new Vector2(InputManager.Instance.InputAxis.x, 1.0f) * jumpForce, ForceMode2D.Impulse);
     }
 
     public override void UpdateState()

@@ -197,6 +197,71 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelProps-Message Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[1].dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[0].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[1].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[2].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[3].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[4].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[1].dialogues.Array.data[0].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[0].Dialogue
+      value: '*2 New Message(s)*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[1].Dialogue
+      value: '*Message 1:*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[2].Dialogue
+      value: "**Nothing beats a jet2 holiday and right now you can save \xA350 per
+        person. that's \xA3200 off for a family of 4**"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[3].Dialogue
+      value: '*Message 2:*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[4].Dialogue
+      value: '**Hey, it''s E#$GD$S. Hope you D#$%W$................*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogues.Array.data[5].Dialogue
+      value: Huh... strange
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915604213898879261, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
+      propertyPath: dialogues.Array.data[1].dialogues.Array.data[0].Dialogue
+      value: '*No New Message*'
+      objectReference: {fileID: 0}
     - target: {fileID: 7028172740209373013, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.9
@@ -239,10 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7028172740209373013, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1169836526}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9478393d2a8af42fc916f632bd03f80e, type: 3}
 --- !u!4 &115766647 stripped
@@ -364,6 +426,171 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2237815601244633130, guid: 577a51456233ab24f854992408434fec, type: 3}
   m_PrefabInstance: {fileID: 1351840974175574492}
   m_PrefabAsset: {fileID: 0}
+--- !u!43 &231768435
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 0
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 0
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 0
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 0
+    _typelessdata: 
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &409358978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1022,178 +1249,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1514504380742917465, guid: e79f17b2235cdb24e97a1a220555e40a, type: 3}
   m_PrefabInstance: {fileID: 1074051764}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1169836525
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 115766647}
-    m_Modifications:
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1519644136806962468, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_Size.x
-      value: 0.34944266
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[0].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[1].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[2].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[3].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[4].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[5].Name
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[0].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[1].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[2].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[3].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[4].Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[0].Dialogue
-      value: '*2 New Message(s)*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[1].Dialogue
-      value: '*Message 1:*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[2].Dialogue
-      value: "**Nothing beats a jet2 holiday and right now you can save \xA350 per
-        person. that's \xA3200 off for a family of 4**"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[3].Dialogue
-      value: '*Message 2:*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[4].Dialogue
-      value: '**Hey, it''s E#$GD$S. Hope you D#$%W$................*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[0].dialogues.Array.data[5].Dialogue
-      value: Huh... strange
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[0].Dialogue
-      value: '*No New Message*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[1].Dialogue
-      value: '*Message 1:*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[2].Dialogue
-      value: "**Nothing beats a jet2 holiday and right now you can save \xA350 per
-        person. that's \xA3200 off for a family of 4**"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[3].Dialogue
-      value: '*Message 2:*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[4].Dialogue
-      value: '**Hey, it''s E#$GD$S. Hope you D#$%W$................*'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067229080249839683, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: dialogues.Array.data[1].dialogues.Array.data[5].Dialogue
-      value: Huh... strange
-      objectReference: {fileID: 0}
-    - target: {fileID: 9088768213931210502, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-      propertyPath: m_Name
-      value: EnvironmentInteraction
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
---- !u!4 &1169836526 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1514504380742917465, guid: 2dab8cd4f45a44700b9f5c7c058c86fa, type: 3}
-  m_PrefabInstance: {fileID: 1169836525}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254022106
 PrefabInstance:

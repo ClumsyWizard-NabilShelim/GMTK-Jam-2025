@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     public PlayerStateModifier StateModifier { get; private set; }
     public PlayerFlashLightSystem FlashLightSystem { get; private set; }
 
-    [SerializeField] private List<PlayerItem> startingItems = new List<PlayerItem>();
+    [SerializeField] private List<string> startingItems = new List<string>();
 
     [Header("Ground Detection")]
     [SerializeField] private Vector2 checkArea;
@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
-        if (!PlayerInventory.Instance.HasItem(PlayerItem.Bat) || PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Attack))
+        if (!PlayerInventory.Instance.HasItem("Bat") || PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Attack))
             return;
 
         if (State == PlayerState.Vault || State == PlayerState.Combat || StateModifier.IsInLockedState())

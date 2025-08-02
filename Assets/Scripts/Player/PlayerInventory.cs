@@ -3,23 +3,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerItem
-{
-    ToyKey,
-    FlashLight,
-    Bat
-}
-
 public class PlayerInventory : CW_Persistant<PlayerInventory>, ISceneLoadEvent
 {
-    private Dictionary<PlayerItem, int> items = new Dictionary<PlayerItem, int>();
+    private Dictionary<string, int> items = new Dictionary<string, int>();
 
-    public bool HasItem(PlayerItem item)
+    public bool HasItem(string item)
     {
         return items.ContainsKey(item);
     }
 
-    public void AddItem(PlayerItem item)
+    public void AddItem(string item)
     {
         if (items.ContainsKey(item))
             items[item] += 1;
@@ -27,7 +20,7 @@ public class PlayerInventory : CW_Persistant<PlayerInventory>, ISceneLoadEvent
             items.Add(item, 1);
     }
 
-    public void RemoveItem(PlayerItem item)
+    public void RemoveItem(string item)
     {
         if (!items.ContainsKey(item))
             return;
@@ -41,7 +34,7 @@ public class PlayerInventory : CW_Persistant<PlayerInventory>, ISceneLoadEvent
     public void OnSceneLoadOver(Action onComplete)
     {
         if(CW_SceneManagement.Instance.IsMenuScene)
-            items = new Dictionary<PlayerItem, int>();
+            items = new Dictionary<string, int>();
 
         onComplete?.Invoke();
     }

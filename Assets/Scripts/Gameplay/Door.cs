@@ -1,9 +1,15 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] private Collider2D blockingCollider;
     [SerializeField] private bool isOpen;
+    [SerializeField] private string requiredKey;
+    [SerializeField] private List<DialogueData> lockedDoorDialogues;
+
+    public Action<bool> OnDoorInteract;
 
     [Header("Visuals")]
     [SerializeField] private InteractableObjectUI ui;
@@ -24,18 +30,28 @@ public class Door : MonoBehaviour
     {
         isOpen = active;
 
-        blockingCollider.enabled = !isOpen;
+        if (blockingCollider != null)
+            blockingCollider.enabled = !isOpen;
 
         if (isOpen)
             spriteRenderer.sprite = openSprite;
         else
             spriteRenderer.sprite = closeSprite;
+
+        OnDoorInteract?.Invoke(isOpen);
     }
 
     private void OnInteract()
     {
         if (!playerNear)
             return;
+
+        if (requiredKey != "" && !PlayerInventory.Instance.HasItem(requiredKey))
+        {
+            if(lockedDoorDialogues != null && lockedDoorDialogues.Count > 0)
+                DialogueManager.Instance.Show(lockedDoorDialogues, transform, DialogueType.SpeechBubble);
+            return;
+        }
 
         Toggle(!isOpen);
     }
