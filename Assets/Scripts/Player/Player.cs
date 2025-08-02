@@ -15,7 +15,7 @@ public enum PlayerState
 
 public class Player : MonoBehaviour
 {
-    private bool isActive;
+    private Dictionary<PlayerState, PlayerStateModule> modules;
     public PlayerState State { get; private set; }
     public Vector2 Facing { get; private set; }
 
@@ -24,21 +24,21 @@ public class Player : MonoBehaviour
     public PlayerDragSystem DragSystem { get; private set; }
     public PlayerVisuals Visuals { get; private set; }
     public PlayerStateModifier StateModifier { get; private set; }
-    private Dictionary<PlayerState, PlayerStateModule> modules;
-
-    private float defaultGravity;
+    public PlayerFlashLightSystem FlashLightSystem { get; private set; }
 
     [Header("Ground Detection")]
     [SerializeField] private Vector2 checkArea;
     [SerializeField] private LayerMask groundLayer;
+    private float defaultGravity;
 
     private void Start()
     {
-        isActive = true;
         RB = GetComponent<Rigidbody2D>();
         defaultGravity = RB.gravityScale;
 
         EdgeDetector = GetComponent<PlayerEdgeDetector>();
+        EdgeDetector.Initialize(this);
+
         Visuals = GetComponent<PlayerVisuals>();
 
         DragSystem = GetComponent<PlayerDragSystem>();
@@ -46,6 +46,9 @@ public class Player : MonoBehaviour
 
         StateModifier = GetComponent<PlayerStateModifier>();
         StateModifier.Initialize(this);
+
+        FlashLightSystem = GetComponent<PlayerFlashLightSystem>();
+        FlashLightSystem.Initialize(this);
 
         Facing = Vector2.right;
 
@@ -68,17 +71,28 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!isActive)
+        if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.All))
             return;
 
-        LedgeDetection();
+        if(PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Jump))
+            LedgeDetection();
 
         if (!StateModifier.IsInLockedState())
         {
-            if (InputManager.Instance.InputAxis.x > 0.0f)
-                Facing = Vector2.right;
-            else if (InputManager.Instance.InputAxis.x < 0.0f)
-                Facing = Vector2.left;
+            if (FlashLightSystem.IsActive)
+            {
+                if (InputManager.Instance.MouseWorldPos.x > transform.position.x)
+                    Facing = Vector2.right;
+                else if (InputManager.Instance.MouseWorldPos.x < transform.position.x)
+                    Facing = Vector2.left;
+            }
+            else
+            {
+                if (InputManager.Instance.InputAxis.x > 0.0f)
+                    Facing = Vector2.right;
+                else if (InputManager.Instance.InputAxis.x < 0.0f)
+                    Facing = Vector2.left;
+            }
         }
 
         modules[State].UpdateState();
@@ -86,7 +100,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isActive)
+        if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.All))
             return;
 
         modules[State].FixedUpdateState();
@@ -122,7 +136,7 @@ public class Player : MonoBehaviour
     //Input Events
     private void OnRunStart()
     {
-        if (!isActive)
+        if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Run))
             return;
 
         if (State == PlayerState.Vault || StateModifier.IsInLockedState())
@@ -133,7 +147,7 @@ public class Player : MonoBehaviour
     }
     private void OnRunEnd()
     {
-        if (!isActive)
+        if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Run))
             return;
 
         if (State == PlayerState.Vault || StateModifier.State != PlayerModifiedState.Running || StateModifier.IsInLockedState())
@@ -143,7 +157,7 @@ public class Player : MonoBehaviour
     }
     private void OnCrouchToggle()
     {
-        if (!isActive)
+        if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Crouch))
             return;
 
         if (State == PlayerState.Vault || StateModifier.IsInLockedState())
@@ -157,7 +171,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
-        if (!isActive)
+        if (!PlayerInventory.Instance.HasItem(PlayerItem.Bat) || PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Attack))
             return;
 
         if (State == PlayerState.Vault || State == PlayerState.Combat || StateModifier.IsInLockedState())
@@ -168,7 +182,7 @@ public class Player : MonoBehaviour
 
     private void OnJump()
     {
-        if (!isActive)
+        if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Jump))
             return;
 
         if (State == PlayerState.Vault || State == PlayerState.Jump || StateModifier.State == PlayerModifiedState.Dragging)
@@ -194,12 +208,15 @@ public class Player : MonoBehaviour
 
     public void Toggle(bool active)
     {
-        isActive = active;
-
-        if (!isActive)
+        if (!active)
         {
+            PlayerRestrictionManager.Instance.AddRestriction(ControlRestriction.All);
             StateModifier.SetState(PlayerModifiedState.None);
             SetState(PlayerState.Idle);
+        }
+        else
+        {
+            PlayerRestrictionManager.Instance.RemoveRestriction(ControlRestriction.All);
         }
     }
 

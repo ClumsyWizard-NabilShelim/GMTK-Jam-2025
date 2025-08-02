@@ -7,6 +7,9 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
 {
     public Action OnPause;
     public Vector2 InputAxis { get; private set; }
+
+    public Vector2 MouseWorldPos => Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
     public Action OnRunStart;
     public Action OnRunEnd;
     public Action OnCrouchToggle;
@@ -15,6 +18,7 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
     public Action OnDragDrop;
     public Action OnInteract;
     public Action OnContinueDialogue;
+    public Action OnToggleFlashLight;
 
     private void Update()
     {
@@ -38,6 +42,9 @@ public class InputManager : CW_Persistant<InputManager>, ISceneLoadEvent
 
         if (Input.GetKeyDown(KeyCode.Space))
             OnJump?.Invoke();
+
+        if (Input.GetKeyDown(KeyCode.F))
+            OnToggleFlashLight?.Invoke();
 
         if (Input.GetKeyDown(KeyCode.E))
         {

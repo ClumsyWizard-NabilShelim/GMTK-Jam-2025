@@ -6,6 +6,7 @@ public class PlayerVisuals : MonoBehaviour
     private Animator animator;
     private Player player;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer flashLight;
 
     private void Start()
     {
@@ -68,6 +69,11 @@ public class PlayerVisuals : MonoBehaviour
         animator.SetLayerWeight(2, 0.0f);
     }
 
+    public void ToggleBackwards(bool backwards)
+    {
+        animator.SetBool("IsBackwards", backwards);
+    }
+
     public void PauseAnimator(bool pause)
     {
         animator.speed = pause ? 0.0f : 1.0f;
@@ -77,5 +83,11 @@ public class PlayerVisuals : MonoBehaviour
     private void UpdateFacing()
     {
         spriteRenderer.flipX = player.Facing.x < 0.0f;
+        flashLight.flipX = spriteRenderer.flipX;
+
+        if (flashLight.flipX)
+            flashLight.sortingOrder = 1;
+        else
+            flashLight.sortingOrder = -1;
     }
 }

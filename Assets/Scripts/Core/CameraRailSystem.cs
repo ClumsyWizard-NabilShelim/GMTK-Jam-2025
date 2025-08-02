@@ -1,11 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using static UnityEngine.GraphicsBuffer;
 using ClumsyWizard.Core;
-
-
-
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,12 +16,17 @@ public struct RailData
 
 public class CameraRailSystem : CW_Singleton<CameraRailSystem>
 {
+    public bool CanOffset { get; private set; }
     [SerializeField] private List<RailData> railPoints;
+    private List<RailData> currentRailPoints;
+
     private RailData currentRail;
     private Transform player;
 
     private void Start()
     {
+        CanOffset = true;
+        currentRailPoints = railPoints;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -38,20 +39,30 @@ public class CameraRailSystem : CW_Singleton<CameraRailSystem>
     //Helper Functions
     private void FindClosestRail()
     {
-        RailData current = railPoints[0];
+        RailData current = currentRailPoints[0];
         float minDist = Vector2.Distance(player.position, ((current.End + current.Start) / 2.0f));
-        for (int i = 1; i < railPoints.Count; i++)
+        for (int i = 1; i < currentRailPoints.Count; i++)
         {
-            float dist = Vector2.Distance(player.position, ((railPoints[i].Start + railPoints[i].End) / 2.0f));
+            float dist = Vector2.Distance(player.position, ((currentRailPoints[i].Start + currentRailPoints[i].End) / 2.0f));
 
             if (dist < minDist)
             {
                 minDist = dist;
-                current = railPoints[i];
+                current = currentRailPoints[i];
             }
         }
 
         currentRail = current;
+    }
+
+    public void SetConstraint(List<RailData> constraints, bool canOffset)
+    {
+        CanOffset = canOffset;
+
+        if (constraints == null || constraints.Count == 0)
+            currentRailPoints = railPoints;
+        else
+            currentRailPoints = constraints;
     }
 
 

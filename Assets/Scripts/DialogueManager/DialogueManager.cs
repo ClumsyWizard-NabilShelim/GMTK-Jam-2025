@@ -7,7 +7,16 @@ using UnityEngine;
 
 public enum CharacterName
 {
-    Player
+    Player,
+    Girl,
+    Snuffles,
+    Message_Box
+}
+
+public enum DialogueType
+{
+    Full,
+    SpeechBubble,
 }
 
 [Serializable]
@@ -24,14 +33,25 @@ public class DialogueManager : CW_Singleton<DialogueManager>
 
     public bool IsShowingDialogue => showingDialogue;
 
-    private Animator animator;
-    private List<DialogueData> currentDialogues;
-    private int index;
     private WaitForSeconds delay;
+
+    private List<DialogueData> currentDialogues;
+    private DialogueType currentDialogueType;
+    private int index;
     private bool showingDialogue;
     private bool isTyping;
 
     [SerializeField] private TextMeshProUGUI dialogueText;
+
+    [Header("Speech Dialogue")]
+    [SerializeField] private Transform speechBubbleContainer;
+    [SerializeField] private TextMeshProUGUI speechkBubbleText;
+    [SerializeField] private float autoSkipDelay;
+
+    [Header("Full Dialogue")]
+    [SerializeField] private TextMeshProUGUI fullDialogueText;
+    private Animator animator;
+
 
     private void Start()
     {
@@ -43,28 +63,62 @@ public class DialogueManager : CW_Singleton<DialogueManager>
         InputManager.Instance.OnContinueDialogue += OnContinue;
     }
 
-    public void Show(List<DialogueData> dialogues)
+    public void Show(List<DialogueData> dialogues, Transform target, DialogueType type)
     {
-        player.Toggle(false);
+        if (type == DialogueType.Full && IsShowingDialogue)
+            return;
+
+        StopAllCoroutines();
+        CancelInvoke("OnContinue");
+
+        currentDialogueType = type;
+
         index = 0;
         currentDialogues = dialogues;
         showingDialogue = true;
-        animator.SetBool("Show", true);
+
+        if (type == DialogueType.Full)
+        {
+            player.Toggle(false);
+         
+            animator.SetBool("Show", true);
+            dialogueText = fullDialogueText;
+        }
+        else
+        {
+            dialogueText = speechkBubbleText;
+            speechBubbleContainer.gameObject.SetActive(true);
+            speechBubbleContainer.position = target.position + new Vector3(1.0f, 1.5f, 0.0f);
+            speechBubbleContainer.SetParent(target);
+        }
+
         StartCoroutine(TypeOut(currentDialogues[index]));
     }
 
     private void Hide()
     {
-        player.Toggle(true);
-        animator.SetBool("Show", false);
+        if (currentDialogueType == DialogueType.Full)
+        {
+            player.Toggle(true);
+            animator.SetBool("Show", false);
+        }
+        else
+        {
+            speechBubbleContainer.gameObject.SetActive(false);
+        }
+
         showingDialogue = false;
     }
 
     private IEnumerator TypeOut(DialogueData data)
     {
+        CancelInvoke("OnContinue");
         isTyping = true;
-        dialogueText.text = $"{data.Name}: ";
-        yield return new WaitForSeconds(0.5f);
+
+        if (currentDialogueType == DialogueType.SpeechBubble)
+            dialogueText.text = "";
+        else
+            dialogueText.text = $"{data.Name.ToString().Replace("_", " ")}: ";
 
         foreach (char letter in data.Dialogue)
         {
@@ -73,10 +127,15 @@ public class DialogueManager : CW_Singleton<DialogueManager>
         }
 
         isTyping = false;
+
+        if (currentDialogueType == DialogueType.SpeechBubble)
+            Invoke("OnContinue", autoSkipDelay);
     }
 
     private void OnContinue()
     {
+        CancelInvoke("OnContinue");
+
         if (!showingDialogue)
             return;
 
@@ -85,7 +144,10 @@ public class DialogueManager : CW_Singleton<DialogueManager>
             isTyping = false;
             StopAllCoroutines();
 
-            dialogueText.text = $"{currentDialogues[index].Name}: {currentDialogues[index].Dialogue}";
+            if (currentDialogueType == DialogueType.SpeechBubble)
+                dialogueText.text = currentDialogues[index].Dialogue;
+            else
+                dialogueText.text = $"{currentDialogues[index].Name.ToString().Replace("_", " ")}: ";
         }
         else
         {

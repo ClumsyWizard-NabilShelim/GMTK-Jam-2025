@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerEdgeDetector : MonoBehaviour
 {
+    private Player player;
     [SerializeField] private float checkRange;
     [SerializeField] private LayerMask checkLayer;
     [SerializeField] private Vector2 topCheckPos;
@@ -11,11 +12,16 @@ public class PlayerEdgeDetector : MonoBehaviour
 
     private Vector2 checkDir = new Vector2(1.0f, 0.0f);
 
+    public void Initialize(Player player)
+    {
+        this.player = player;
+    }
+
     private void Update()
     {
-        if (InputManager.Instance.InputAxis.x > 0.0f)
+        if (player.Facing.x > 0.0f)
             checkDir.x = 1.0f;
-        else if (InputManager.Instance.InputAxis.x < 0.0f)
+        else if (player.Facing.x < 0.0f)
             checkDir.x = -1.0f;
     }
 

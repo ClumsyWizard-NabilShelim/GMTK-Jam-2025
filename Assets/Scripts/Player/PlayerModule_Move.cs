@@ -28,6 +28,11 @@ public class PlayerModule_Move : PlayerStateModule
     {
         if(InputManager.Instance.InputAxis.x == 0.0f && player.StateModifier.State != PlayerModifiedState.Climbing)
             player.SetState(PlayerState.Idle);
+
+        if (Mathf.Sign(InputManager.Instance.InputAxis.x) != Mathf.Sign(player.Facing.x))
+            player.Visuals.ToggleBackwards(true);
+        else
+            player.Visuals.ToggleBackwards(false);
     }
     public override void FixedUpdateState()
     {
@@ -54,6 +59,7 @@ public class PlayerModule_Move : PlayerStateModule
 
     public override void Exit(PlayerState nextState)
     {
+        player.Visuals.ToggleBackwards(false);
         player.RB.linearVelocityX = 0.0f;
         player.Visuals.StopMove();
     }

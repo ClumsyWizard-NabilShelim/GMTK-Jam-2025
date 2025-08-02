@@ -30,9 +30,9 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.Instance.InputAxis.x < 0.0f)
+        if (player.Facing.x < 0.0f)
             normalOffset.x = -originalNormalOffset.x;
-        else if (InputManager.Instance.InputAxis.x > 0.0f)
+        else if (player.Facing.x > 0.0f)
             normalOffset.x = originalNormalOffset.x;
 
         if (InputManager.Instance.InputAxis.y < 0.0f)
@@ -44,8 +44,8 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         if(player.StateModifier.State == PlayerModifiedState.Climbing)
-            transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + climbingOffset, ref refVelocity, climbingSmoothing);
+            transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + (CameraRailSystem.Instance.CanOffset ? climbingOffset : Vector2.zero), ref refVelocity, climbingSmoothing);
         else
-            transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + normalOffset, ref refVelocity, normalSmoothing);
+            transform.position = Vector3.SmoothDamp(transform.position, CameraRailSystem.Instance.GetFollowPoint() + (CameraRailSystem.Instance.CanOffset ? normalOffset : Vector2.zero), ref refVelocity, normalSmoothing);
     }
 }

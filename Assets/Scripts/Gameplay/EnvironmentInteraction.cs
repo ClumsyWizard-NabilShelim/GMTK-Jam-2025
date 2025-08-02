@@ -11,11 +11,12 @@ public struct DialogueContainer
 public class EnvironmentInteraction : MonoBehaviour
 {
     [SerializeField] private List<DialogueContainer> dialogues;
+    [SerializeField] private DialogueType type;
 
     [Header("Visuals")]
     [SerializeField] private InteractableObjectUI ui;
 
-    private bool playerNear;
+    private Transform player;
 
     private void Start()
     {
@@ -25,15 +26,22 @@ public class EnvironmentInteraction : MonoBehaviour
 
     private void OnInteract()
     {
-        if (!playerNear || dialogues.Count == 0 || DialogueManager.Instance.IsShowingDialogue)
+        if (player == null || dialogues.Count == 0 || DialogueManager.Instance.IsShowingDialogue)
             return;
 
         DialogueContainer data = dialogues[0];
 
-        if (dialogues.Count > 1)
+        if (dialogues.Count > 1 || type == DialogueType.SpeechBubble)
+        {
             dialogues.RemoveAt(0);
+        }
+        
+        DialogueManager.Instance.Show(data.dialogues, player, type);
 
-        DialogueManager.Instance.Show(data.dialogues);
+        if(dialogues.Count == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,8 +49,12 @@ public class EnvironmentInteraction : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
-        playerNear = true;
-        ui.ToggleMarker(true);
+        player = collision.transform;
+
+        if (type == DialogueType.SpeechBubble)
+            OnInteract();
+        else
+            ui.ToggleMarker(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -50,8 +62,9 @@ public class EnvironmentInteraction : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
-        playerNear = false;
-        ui.ToggleMarker(false);
+        player = null;
+        if (type == DialogueType.Full)
+            ui.ToggleMarker(false);
     }
 
     //Clean up
