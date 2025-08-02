@@ -610,6 +610,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_3
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 58
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7149e8acd01e62043b4bdf1a8048399b
+      internalID: 1158173105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bedroom_Props_6
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 58
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b636682f7dcd595428baec26aab37b2b
+      internalID: 408579896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -630,6 +674,8 @@ TextureImporter:
       Bedroom_Props_11: -8775021908752799044
       Bedroom_Props_12: 2492100518392917198
       Bedroom_Props_15: 2112893655
+      Bedroom_Props_3: 1158173105
+      Bedroom_Props_6: 408579896
       cat toy 2: 738360849
       cat toys 1: 589510547
       catlitter: 1415531011
