@@ -29,10 +29,17 @@ public class PlayerModule_Move : PlayerStateModule
         if(InputManager.Instance.InputAxis.x == 0.0f && player.StateModifier.State != PlayerModifiedState.Climbing)
             player.SetState(PlayerState.Idle);
 
-        if (Mathf.Sign(InputManager.Instance.InputAxis.x) != Mathf.Sign(player.Facing.x))
-            player.Visuals.ToggleBackwards(true);
-        else
+        if (player.StateModifier.State == PlayerModifiedState.Dragging)
+        {
             player.Visuals.ToggleBackwards(false);
+        }
+        else
+        {
+            if (Mathf.Sign(InputManager.Instance.InputAxis.x) != Mathf.Sign(player.Facing.x))
+                player.Visuals.ToggleBackwards(true);
+            else
+                player.Visuals.ToggleBackwards(false);
+        }
     }
     public override void FixedUpdateState()
     {
@@ -48,7 +55,7 @@ public class PlayerModule_Move : PlayerStateModule
         if (player.StateModifier.State == PlayerModifiedState.Dragging)
         {
             player.Visuals.PlayPushPull(InputManager.Instance.InputAxis.x * player.Facing.x);
-
+            print("Dragging");
             player.RB.linearVelocityX = InputManager.Instance.InputAxis.x * currentSpeed;
         }
         else

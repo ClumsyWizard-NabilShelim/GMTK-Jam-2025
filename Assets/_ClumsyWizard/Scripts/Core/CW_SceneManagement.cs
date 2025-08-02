@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ClumsyWizard.Core
 {
@@ -28,6 +29,11 @@ namespace ClumsyWizard.Core
         {
             base.Awake();
             sceneLoadFunctionality = GetComponent<CW_SceneLoadFunctionality>();
+        }
+
+        public void Reload()
+        {
+            Load(SceneManager.GetActiveScene().name);
         }
 
         public void Load(string sceneName = "")

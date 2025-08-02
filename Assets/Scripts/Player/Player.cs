@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
@@ -20,11 +21,14 @@ public class Player : MonoBehaviour
     public Vector2 Facing { get; private set; }
 
     public Rigidbody2D RB { get; private set; }
+    public PlayerStats Stats { get; private set; }
     public PlayerEdgeDetector EdgeDetector { get; private set; }
     public PlayerDragSystem DragSystem { get; private set; }
     public PlayerVisuals Visuals { get; private set; }
     public PlayerStateModifier StateModifier { get; private set; }
     public PlayerFlashLightSystem FlashLightSystem { get; private set; }
+
+    [SerializeField] private List<PlayerItem> startingItems = new List<PlayerItem>();
 
     [Header("Ground Detection")]
     [SerializeField] private Vector2 checkArea;
@@ -35,6 +39,9 @@ public class Player : MonoBehaviour
     {
         RB = GetComponent<Rigidbody2D>();
         defaultGravity = RB.gravityScale;
+
+        Stats= GetComponent<PlayerStats>();
+        Stats.Initiaize(this);
 
         EdgeDetector = GetComponent<PlayerEdgeDetector>();
         EdgeDetector.Initialize(this);
@@ -65,6 +72,11 @@ public class Player : MonoBehaviour
             modules.Add(module.TargetState, module);
         }
 
+        for (int i = 0; i < startingItems.Count; i++)
+        {
+            PlayerInventory.Instance.AddItem(startingItems[i]);
+        }
+
         State = PlayerState.Init;
         SetState(PlayerState.Idle);
     }
@@ -74,7 +86,7 @@ public class Player : MonoBehaviour
         if (PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.All))
             return;
 
-        if(PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Jump))
+        if(!PlayerRestrictionManager.Instance.IsRestricted(ControlRestriction.Jump))
             LedgeDetection();
 
         if (!StateModifier.IsInLockedState())

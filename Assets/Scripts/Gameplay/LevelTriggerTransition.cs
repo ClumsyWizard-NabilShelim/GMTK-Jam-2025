@@ -11,8 +11,7 @@ public class LevelTriggerTransition : MonoBehaviour
             return;
 
         Player player = collision.GetComponent<Player>();
-        player.SetState(PlayerState.Idle);
-        player.enabled = false;
+        player.Toggle(false);
         CW_SceneManagement.Instance.Load(targetScene);
     }
 }
